@@ -1,0 +1,17 @@
+<form name="userForm">
+  <div class="field">
+    <label for="emailAddress">Enter your email address:</label>
+    <input type="email" name="emailAddress" ng-model="data.email" required />
+
+    <div ng-messages="userForm.emailAddress.$error">
+      <div ng-message="required">
+        You forgot to enter your email address...
+      </div>
+      <div ng-message="email">
+        You did not enter your email address correctly...
+      </div>
+    </div>
+  </div>
+
+  <input type="submit" />
+</form>

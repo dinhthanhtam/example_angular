@@ -1,0 +1,29 @@
+<div ng-controller="BookIndexCtrl">
+  <h1>{{ title }}</h1>
+  <table border="1" class="mytable">
+    <tr>
+        <td width="30%">Title</td>
+        <td width="30%">Author</td>
+        <td></td>
+    </tr>
+
+
+    <tr ng-repeat="item in ::books">
+        <td>
+          <span ng-hide="editMode">{{::item.title}}</span>
+          <input type="text" ng-show="editMode" ng-model="item.title" />
+        </td>
+        <td>
+          <span ng-hide="editMode">{{item.author}}</span>
+          <input type="text" ng-show="editMode" ng-model="item.author"  />
+        </td>
+        <td>
+          <span> <button type="submit" ng-hide="editMode" ng-click="editMode = true; editItem(item)" >Edit</button></span>
+          <span> <button type="submit" ng-show="editMode" ng-click="editMode = false; updateItem(item)">Save</button></span>
+          <span><input type="button" value="Delete" ng-click="removeItem($index)" /></span>
+        </td>
+    </tr>
+
+  </table>
+  
+</div>
